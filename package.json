@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test-foo": "cypress run --project ./src/clients/foo"
+    "test": "npm run test-foo && npm run test-bar",
+    "test-foo": "cypress run --project ./src/clients/foo",
+    "test-bar": "cypress run --project $PWD/src/clients/foo"
   },
   "keywords": [],
   "author": "",
