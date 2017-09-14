@@ -6,12 +6,12 @@
   "scripts": {
     "test": "npm run test-foo && npm run test-bar",
     "test-foo": "cypress run --project ./src/clients/foo",
-    "test-bar": "cypress run --project $PWD/src/clients/foo"
+    "test-bar": "cypress run --project $PWD/src/clients/bar"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^0.20.0"
+    "cypress": "dev"
   }
 }

@@ -24,7 +24,7 @@ Package scripts test subfolders (using relative and absolute paths)
   "scripts": {
     "test": "npm run test-foo && npm run test-bar",
     "test-foo": "cypress run --project ./src/clients/foo",
-    "test-bar": "cypress run --project $PWD/src/clients/foo"
+    "test-bar": "cypress run --project $PWD/src/clients/bar"
   }
 }
 ```
