@@ -5,3 +5,11 @@ machine:
 dependencies:
   cache_directories:
     - "node_modules"
+
+test:
+  override:
+    - npm install
+    - echo Installing Cypress NPM package $CYPRESS_NPM_PACKAGE_NAME
+    - echo and binary $CYPRESS_BINARY_VERSION
+    - npm install $CYPRESS_NPM_PACKAGE_NAME
+    - npm test
