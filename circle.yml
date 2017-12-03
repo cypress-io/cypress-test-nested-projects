@@ -3,6 +3,9 @@ machine:
     version: 8.4.0
 
 dependencies:
+  pre:
+    - $(npm bin)/commit-message-install
+    - $(npm bin)/cypress verify
   cache_directories:
     - "node_modules"
 

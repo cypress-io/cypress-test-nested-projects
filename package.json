@@ -8,10 +8,8 @@
     "test-foo": "cypress run --project ./src/clients/foo",
     "test-bar": "cypress run --project $PWD/src/clients/bar"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "cypress": "dev"
+    "commit-message-install": "^1.4.0"
   }
 }
