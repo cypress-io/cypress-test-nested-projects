@@ -27,15 +27,3 @@ workflows:
   build:
     jobs:
       - test
-
-# machine:
-#   node:
-#     version: 8.4.0
-
-# dependencies:
-#   override:
-#     - npm install
-#     - $(npm bin)/commit-message-install
-#     - $(npm bin)/cypress verify
-#   cache_directories:
-#     - "node_modules"
