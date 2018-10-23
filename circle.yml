@@ -1,11 +1,29 @@
-machine:
-  node:
-    version: 8.4.0
+version: 2
+jobs:
+  test:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - cache-{{ checksum "package.json" }}
+      - run: npm ci
+      - save_cache:
+          key: cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      # now install just a specific version of Cypress (from commit message)
+      # or latest version of Cypress
+      - run:
+          name: Install Cypress
+          command: $(npm bin)/commit-message-install --else "npm i cypress"
+      - run: $(npm bin)/cypress verify
+      - run: npm test
 
-dependencies:
-  override:
-    - npm install
-    - $(npm bin)/commit-message-install
-    - $(npm bin)/cypress verify
-  cache_directories:
-    - "node_modules"
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test
