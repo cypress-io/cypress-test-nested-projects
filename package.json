@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test-foo && npm run test-bar",
+    "start": "http-server app -c-1",
+    "test": "npm start & npm run test-foo && npm run test-bar",
     "test-foo": "cypress run --project ./src/clients/foo",
-    "test-bar": "cypress run --project $PWD/src/clients/bar"
+    "test-bar": "cypress run --project $PWD/src/clients/bar",
+    "open-bar": "cypress open --project $PWD/src/clients/bar"
   },
   "license": "MIT",
   "devDependencies": {
-    "commit-message-install": "^1.4.0"
+    "commit-message-install": "^1.4.0",
+    "cypress": "3.1.5"
+  },
+  "dependencies": {
+    "http-server": "0.11.1"
   }
 }
