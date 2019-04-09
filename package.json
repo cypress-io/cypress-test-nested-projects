@@ -10,6 +10,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "commit-message-install": "^1.4.0"
+    "commit-message-install": "2.2.0"
   }
 }
