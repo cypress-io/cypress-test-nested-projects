@@ -22,6 +22,16 @@ jobs:
       - run: $(npm bin)/cypress verify
       - run: npm test
 
+      # if needed, set the Cypress commit status
+      - run:
+          when: on_success
+          name: Set status check
+          command: $(npm bin)/set-status --state success --description "on CircleCI"
+      - run:
+          when: on_fail
+          name: Set status check
+          command: $(npm bin)/set-status --state failure --description "on CircleCI"
+
 workflows:
   version: 2
   build:

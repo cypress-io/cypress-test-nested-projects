@@ -10,6 +10,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "commit-message-install": "2.2.0"
+    "@cypress/commit-message-install": "2.4.0"
   }
 }
