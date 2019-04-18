@@ -8,8 +8,5 @@
     "test-foo": "cypress run --project ./src/clients/foo",
     "test-bar": "cypress run --project $PWD/src/clients/bar"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "@cypress/commit-message-install": "2.4.0"
-  }
+  "license": "MIT"
 }
