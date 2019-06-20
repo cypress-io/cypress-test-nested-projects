@@ -1,10 +1,37 @@
-version: 2
+version: 2.1
+
+commands:
+  early-stop:
+    description: |
+      Early halt if this commit is for testing binaries for different platform
+      Place this command AFTER checkout command because we need to look
+      at the commit subject text
+    parameters:
+      substring:
+        type: string
+        description: String to search for in the commit subject to skip build
+    steps:
+      - run:
+          name: Checking OS platform for "<< parameters.substring >>"
+          command: |
+            subject=$(git show -s --pretty=%s)
+            echo "Commit subject: $subject"
+
+            if [[ $subject == *"<< parameters.substring >>"* ]]; then
+              echo Skipping testing binary ⏭
+              echo Found string "<< parameters.substring >>"
+              circleci step halt
+            fi
+
 jobs:
   test:
     docker:
       - image: cypress/base:10
     steps:
       - checkout
+      - early-stop:
+          # we should not test Mac binary on Linux machines
+          substring: Testing new darwin
       - restore_cache:
           keys:
             - cache-{{ checksum "package.json" }}
