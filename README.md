@@ -28,3 +28,21 @@ Package scripts test subfolders (using relative and absolute paths)
   }
 }
 ```
+
+Examples:
+
+If you want to run Cypress tests in the folder "src/clients/foo"
+
+```shell
+npx cypress run --project ./src/clients/foo
+```
+
+## FAQ
+
+<details>
+  <summary>
+     What's the difference between <code>cypress run --project "folder"</code> and <code>cypress run --config-file "filepath"</code>?
+  </summary>
+    <p>When you use <code>cypress run --project ...</code> you change the root folder where Cypress starts.</p>
+    <p>When you use <code>--config-file ...</code> you still run Cypress in the current folder, but instead of loading the settings from <code>cypress.json</code> file, you load it from a different JSON file.</p>
+</details>
