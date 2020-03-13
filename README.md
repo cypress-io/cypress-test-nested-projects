@@ -14,10 +14,13 @@ src/
             cypress/
         bar/
             cypress.json
+            cypress-smoke.json
             cypress/
+              integration/
+              smoke/
 ```
 
-Package scripts test subfolders (using relative and absolute paths)
+Package scripts test subfolders (using relative and absolute paths), see [package.json](package.json)
 
 ```json
 {
@@ -29,12 +32,18 @@ Package scripts test subfolders (using relative and absolute paths)
 }
 ```
 
-Examples:
+## Examples:
 
-If you want to run Cypress tests in the folder "src/clients/foo"
+If you want to run Cypress tests in the folder "src/clients/foo":
 
 ```shell
 npx cypress run --project ./src/clients/foo
+```
+
+If you want to run Cypress in the folder "src/clients/bar" and use [cypress-smoke.json](src/clients/bar/cypress-smoke.json) configuration file:
+
+```shell
+npx cypress run --project ./src/clients/bar --config-file cypress-smoke.json
 ```
 
 ## FAQ
