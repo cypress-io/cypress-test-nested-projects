@@ -1,0 +1,4 @@
+{
+  "integrationFolder": "cypress/smoke",
+  "$schema": "https://on.cypress.io/cypress.schema.json"
+}
